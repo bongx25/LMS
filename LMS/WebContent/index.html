@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management</title>
+</head>
+<body>
+
+<h2>Library Management System</h2>
+
+<button onclick="loadBooks()">View Books</button>
+
+<div id="books"></div>
+
+<script>
+function loadBooks() {
+  fetch('http://localhost:8080/LibraryWebApp/books')
+    .then(res => res.json())
+    .then(data => {
+      let html = '<ul>';
+      data.forEach(b => {
+        html += `<li>${b.id} - ${b.title} - Issued: ${b.issued}</li>`;
+      });
+      html += '</ul>';
+      document.getElementById('books').innerHTML = html;
+    });
+}
+</script>
+
+<form method="post" action="updateBook">
+  <input type="number" name="id" placeholder="Book ID" required>
+  <select name="action">
+    <option value="issue">Issue</option>
+    <option value="return">Return</option>
+  </select>
+  <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

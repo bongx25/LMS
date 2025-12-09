@@ -1,0 +1,21 @@
+<web-app>
+    <servlet>
+        <servlet-name>BookServlet</servlet-name>
+        <servlet-class>com.library.servlet.BookServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookServlet</servlet-name>
+        <url-pattern>/books</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IssueReturnServlet</servlet-name>
+        <servlet-class>com.library.servlet.IssueReturnServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>IssueReturnServlet</servlet-name>
+        <url-pattern>/updateBook</url-pattern>
+    </servlet-mapping>
+</web-app>
